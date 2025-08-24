@@ -1,13 +1,135 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Exo+2:wght@300;400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700;800;900&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary: #0ea5e9;
+  --secondary: #8b5cf6;
+  --accent: #ec4899;
 }
 
+/* Starfield animation */
+@keyframes starfield {
+  from { transform: translateY(0); }
+  to { transform: translateY(-2000px); }
+}
+
+/* Floating animation */
+@keyframes floatY { 
+  0% { transform: translateY(0); } 
+  50% { transform: translateY(-20px); } 
+  100% { transform: translateY(0); } 
+}
+.animate-floating { 
+  animation: floatY 6s ease-in-out infinite alternate; 
+}
+
+/* Rocket animation */
+@keyframes rocketUp { 
+  0% { bottom: 3rem; } 
+  100% { bottom: 68vh; } 
+}
+.animate-rocketslide { 
+  animation: rocketUp 2s cubic-bezier(.68,-0.6,.32,1.6) 1; 
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glow effect */
+@keyframes glow {
+  0%, 100% { 
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+  }
+  50% { 
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff4da6, 0 0 20px #ff4da6, 0 0 25px #ff4da6, 0 0 30px #ff4da6, 0 0 35px #ff4da6;
+  }
+}
+.animate-glow {
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* Glowing navigation */
+.glownav {
+  box-shadow: 0 0 16px 3px #ebb65255, 0 0 72px 20px #761f9966;
+}
+
+/* Star background */
+.stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, #ddd, transparent),
+    radial-gradient(1px 1px at 50px 160px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 40px, #fff, transparent),
+    radial-gradient(2px 2px at 80px 10px, #eee, transparent);
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  animation: starfield 100s linear infinite;
+}
+
+.stars::after {
+  background-image: 
+    radial-gradient(2px 2px at 80px 10px, #ddd, transparent),
+    radial-gradient(1px 1px at 130px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 50px 160px, #eee, transparent);
+  background-size: 250px 250px;
+  animation-duration: 150s;
+}
+
+/* Gradient text */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Parallax effect */
+.parallax {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/* Theme colors */
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -22,5 +144,60 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0ea5e9;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0284c7;
+}
+
+/* Loading animation */
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(14, 165, 233, 0.1);
+  border-radius: 50%;
+  border-top-color: #0ea5e9;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive text shadows */
+@media (max-width: 768px) {
+  .drop-shadow-lg {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 
+                 0 2px 4px rgba(0, 0, 0, 0.3),
+                 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@media (min-width: 769px) {
+  .drop-shadow-lg {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 
+                 0 2px 4px rgba(0, 0, 0, 0.3),
+                 0 5px 10px rgba(0, 0, 0, 0.2),
+                 0 10px 20px rgba(0, 0, 0, 0.15),
+                 0 20px 40px rgba(0, 0, 0, 0.1);
+  }
 }
