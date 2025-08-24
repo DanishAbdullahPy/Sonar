@@ -40,7 +40,7 @@ export default function DashboardPage() {
   <DashboardWelcome user={user} />
   
   {/* Enhanced Card Grid/Quick Navs */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 w-full">
     <a 
       href="/dashboard/neo" 
       className="group relative bg-[#151b2c]/80 backdrop-blur-md border border-gray-800 hover:border-blue-500/50 rounded-2xl shadow-xl hover:shadow-2xl p-8 text-center flex flex-col gap-4 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
@@ -114,6 +114,42 @@ export default function DashboardPage() {
       </div>
       
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 to-pink-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+    </a>
+    
+    <a 
+      href="/dashboard/solar-system" 
+      className="group relative bg-[#151b2c]/80 backdrop-blur-md border border-gray-800 hover:border-indigo-500/50 rounded-2xl shadow-xl hover:shadow-2xl p-8 text-center flex flex-col gap-4 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+      
+      <div className="relative z-10">
+        <span className="text-4xl transition-transform group-hover:scale-110 drop-shadow-[0_0_8px_rgba(99,102,241,0.5)]">🌌</span>
+      </div>
+      
+      <div className="relative z-10">
+        <b className="text-xl font-bold text-white">3D Solar System</b>
+        <p className="text-gray-300 text-sm mt-1">Interactive planetary explorer</p>
+      </div>
+      
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-indigo-500 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+    </a>
+    
+    <a 
+      href="/dashboard/visible-planets" 
+      className="group relative bg-[#151b2c]/80 backdrop-blur-md border border-gray-800 hover:border-cyan-500/50 rounded-2xl shadow-xl hover:shadow-2xl p-8 text-center flex flex-col gap-4 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-cyan-500/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+      
+      <div className="relative z-10">
+        <span className="text-4xl transition-transform group-hover:scale-110 drop-shadow-[0_0_8px_rgba(6,182,212,0.5)]">🔭</span>
+      </div>
+      
+      <div className="relative z-10">
+        <b className="text-xl font-bold text-white">Visible Planets</b>
+        <p className="text-gray-300 text-sm mt-1">Real-time sky positions</p>
+      </div>
+      
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
     </a>
   </div>
 </main>
