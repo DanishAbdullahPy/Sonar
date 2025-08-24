@@ -143,7 +143,7 @@ export default function Landing() {
           
           <div className="flex flex-col sm:flex-row justify-center gap-6 mb-16">
             <a
-              href="/signup"
+              href="/dashboard"
               className="group px-10 py-5 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold rounded-xl text-lg transition-all duration-500 hover:scale-110 shadow-2xl hover:shadow-cyan-500/30 transform hover:-translate-y-1"
             >
               <span className="flex items-center justify-center gap-3">
@@ -505,7 +505,7 @@ export default function Landing() {
           
           <div className="flex flex-col sm:flex-row justify-center gap-8 mb-16">
             <a
-              href="/signup"
+              href="/dashboard"
               className="group px-12 py-6 bg-gradient-to-r from-orange-500 via-red-500 to-pink-500 hover:from-orange-400 hover:via-red-400 hover:to-pink-400 text-white font-black rounded-2xl text-xl shadow-2xl hover:shadow-orange-500/30 transition-all duration-500 hover:scale-110 transform hover:-translate-y-2"
             >
               <span className="flex items-center justify-center gap-4">
@@ -517,11 +517,11 @@ export default function Landing() {
             </a>
             
             <a
-              href="/dashboard"
+              href="/dashboard/neo"
               className="group px-12 py-6 bg-transparent border-3 border-cyan-500/50 text-cyan-300 hover:text-white hover:border-cyan-400 hover:bg-cyan-500/10 font-black rounded-2xl text-xl transition-all duration-500 hover:scale-110 backdrop-blur-sm"
             >
               <span className="flex items-center justify-center gap-4">
-                🌌 EXPLORE DASHBOARD
+                🌌 EXPLORE ASTEROIDS
                 <svg className="w-6 h-6 group-hover:rotate-90 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                 </svg>

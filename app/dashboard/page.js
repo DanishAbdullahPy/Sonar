@@ -1,17 +1,9 @@
 'use client';
 import DashboardWelcome from './components/DashboardWelcome';
-import { useFirebaseUser } from "@/lib/useFirebaseUser"; // <-- your new hook
-import { useRouter } from "next/navigation";
 
 export default function DashboardPage() {
-  const { user, loading } = useFirebaseUser();
-  const router = useRouter();
-
-  if (loading) return <div>Loading...</div>;
-  if (!user) {
-    router.replace("/login"); // or wherever your login page is
-    return null;
-  }
+  // Mock user object for dashboard welcome component
+  const user = { displayName: "Space Explorer", email: "explorer@space.com" };
 
   return (
    <main className="relative px-4 pt-24 pb-8 max-w-7xl mx-auto flex flex-col gap-16 overflow-hidden">

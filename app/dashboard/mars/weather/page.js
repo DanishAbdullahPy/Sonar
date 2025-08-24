@@ -1,7 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useFirebaseUser } from "@/lib/useFirebaseUser";
-import { useRouter } from "next/navigation";
 
 const MarsWeather = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -294,23 +292,6 @@ const MarsWeather = () => {
 };
 
 export default function MarsWeatherPage() {
-  const { user, loading } = useFirebaseUser();
-  const router = useRouter();
-
-  if (loading) return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
-        <p className="text-gray-400">Loading...</p>
-      </div>
-    </div>
-  );
-  
-  if (!user) {
-    router.replace("/login");
-    return null;
-  }
-
   return (
     <main className="px-4 pt-28 pb-12 max-w-7xl mx-auto min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
       <MarsWeather />

@@ -1,7 +1,5 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { useFirebaseUser } from "@/lib/useFirebaseUser";
-import { useRouter } from "next/navigation";
 
 // Mars rover photos component
 const MarsRoverPhotos = () => {
@@ -415,15 +413,6 @@ const MarsRoverPhotos = () => {
 };
 
 export default function MarsPage() {
-  const { user, loading } = useFirebaseUser();
-  const router = useRouter();
-
-  if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
-  if (!user) {
-    router.replace("/login");
-    return null;
-  }
-
   return (
     <main className="px-4 pt-28 max-w-7xl mx-auto min-h-screen bg-gradient-to-b from-[#0f172a] to-[#1e293b]">
       <div className="mb-6 flex justify-end">

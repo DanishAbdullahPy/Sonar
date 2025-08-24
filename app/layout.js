@@ -1,6 +1,5 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { auth } from "@/lib/firebase";
 import SpaceNavbar from "@/app/components/SpaceNavbar";
 
 const geistSans = Geist({
