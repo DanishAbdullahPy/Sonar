@@ -4,7 +4,9 @@ import { OrbitControls, Stars, AdaptiveDpr, Preload } from '@react-three/drei';
 import { EffectComposer, Bloom, ToneMapping } from '@react-three/postprocessing';
 import { Suspense } from 'react';
 import { ToneMappingMode } from 'postprocessing';
-import SolarSystem from './SolarSystem'; // Make sure this handles textures via proper URL or loader
+import SolarSystem from './SolarSystem';
+import SimpleSolarSystem from './SimpleSolarSystem';
+import BeautifulStars from './BeautifulStars';
 
 export default function SolarSystemCanvas({ 
   selectedPlanet, 
@@ -68,15 +70,18 @@ export default function SolarSystemCanvas({
               color="#ffffff"
             />
             
-            {/* Background */}
+            {/* Beautiful Background Stars */}
+            <BeautifulStars count={15000} />
+            
+            {/* Additional Star Layer */}
             <Stars 
-              radius={400} 
-              depth={80} 
-              count={25000} 
-              factor={8} 
+              radius={600} 
+              depth={100} 
+              count={8000} 
+              factor={6} 
               saturation={0}
-              fade
-              speed={0.5}
+              fade={true}
+              speed={0.02}
             />
             
             {/* Enhanced Controls */}
@@ -86,10 +91,13 @@ export default function SolarSystemCanvas({
               enableRotate={true}
               enableDamping={true}
               dampingFactor={0.05}
-              minDistance={3}
-              maxDistance={300}
+              minDistance={5}
+              maxDistance={500}
               maxPolarAngle={Math.PI}
               minPolarAngle={0}
+              zoomSpeed={1.2}
+              panSpeed={1}
+              rotateSpeed={1}
             />
             
             {/* Solar System Components */}
@@ -100,8 +108,8 @@ export default function SolarSystemCanvas({
               timeSpeed={timeSpeed}
               userLocation={userLocation}
               realTimeData={realTimeData}
-              // If you want to pass a texture URL prop, do it here
-              // mercuryNormalMapUrl="/textures/planets/mercury/normal.jpg"
+              showLabels={true}
+              showOrbits={true}
             />
             
             {/* Post-processing Effects */}

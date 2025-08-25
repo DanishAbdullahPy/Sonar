@@ -51,17 +51,17 @@ export default function SkyMap({ realTimeData, userLocation, onPlanetSelect }) {
 
   return (
     <>
-      {/* Toggle button */}
+      {/* Toggle button - Positioned below navbar */}
       <button
         onClick={() => setIsVisible(!isVisible)}
-        className="absolute top-20 right-6 bg-black/80 backdrop-blur-sm text-white px-3 py-2 rounded-lg hover:bg-black/90 transition-colors text-sm border border-gray-700"
+        className="absolute top-20 right-4 md:top-24 md:right-6 bg-black/80 backdrop-blur-sm text-white px-3 py-2 rounded-lg hover:bg-black/90 transition-colors text-sm border border-gray-700 z-40"
       >
         {isVisible ? '🌌 Hide Sky Map' : '🗺️ Show Sky Map'}
       </button>
 
       {/* Sky Map Modal */}
       {isVisible && (
-        <div className="absolute inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50">
+        <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div className="bg-black/90 backdrop-blur-md rounded-2xl p-6 max-w-2xl w-full mx-4 border border-gray-700">
             {/* Header */}
             <div className="flex justify-between items-center mb-6">

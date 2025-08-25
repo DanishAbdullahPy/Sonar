@@ -70,8 +70,8 @@ export default function PlanetaryDashboard({ userLocation, realTimeData, onPlane
   };
 
   return (
-    <div className={`absolute bottom-6 right-6 bg-black/90 backdrop-blur-sm rounded-xl text-white border border-gray-700 transition-all duration-300 ${
-      isExpanded ? 'w-96 max-h-96 overflow-y-auto' : 'w-80'
+    <div className={`absolute bottom-4 right-4 md:bottom-6 md:right-6 bg-black/90 backdrop-blur-sm rounded-xl text-white border border-gray-700 transition-all duration-300 z-30 ${
+      isExpanded ? 'w-80 md:w-96 max-h-80 md:max-h-96 overflow-y-auto' : 'w-72 md:w-80'
     }`}>
       {/* Header */}
       <div className="p-4 border-b border-gray-700">

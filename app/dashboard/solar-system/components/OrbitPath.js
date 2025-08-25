@@ -2,10 +2,10 @@
 import { useMemo } from 'react';
 import { BufferGeometry, Vector3 } from 'three';
 
-export default function OrbitPath({ distance, color = "#333333" }) {
+export default function OrbitPath({ distance, color = "#333333", opacity = 0.3 }) {
   const points = useMemo(() => {
     const curve = [];
-    const segments = 64;
+    const segments = 128; // Increased for smoother orbits
     
     for (let i = 0; i <= segments; i++) {
       const angle = (i / segments) * Math.PI * 2;
@@ -24,7 +24,12 @@ export default function OrbitPath({ distance, color = "#333333" }) {
 
   return (
     <line geometry={geometry}>
-      <lineBasicMaterial color={color} transparent opacity={0.3} />
+      <lineBasicMaterial 
+        color={color} 
+        transparent 
+        opacity={opacity}
+        linewidth={2}
+      />
     </line>
   );
 }
