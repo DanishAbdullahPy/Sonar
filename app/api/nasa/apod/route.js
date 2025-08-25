@@ -24,6 +24,9 @@ export async function GET(request) {
   const thumbs = searchParams.get('thumbs');
   if (thumbs) params.append('thumbs', thumbs);
 
+  const conceptTags = searchParams.get('concept_tags');
+  if (conceptTags) params.append('concept_tags', conceptTags);
+
   try {
     const response = await fetch(`https://api.nasa.gov/planetary/apod?${params.toString()}`);
     if (!response.ok) throw new Error(await response.text());

@@ -151,6 +151,24 @@ export default function DashboardPage() {
       
       <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 to-blue-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
     </a>
+
+    <a
+      href="/dashboard/apod"
+      className="group relative bg-[#151b2c]/80 backdrop-blur-md border border-gray-800 hover:border-pink-500/50 rounded-2xl shadow-xl hover:shadow-2xl p-8 text-center flex flex-col gap-4 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
+    >
+      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-pink-500/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+      <div className="relative z-10">
+        <span className="text-4xl transition-transform group-hover:scale-110 drop-shadow-[0_0_8px_rgba(236,72,153,0.5)]">🌠</span>
+      </div>
+
+      <div className="relative z-10">
+        <b className="text-xl font-bold text-white">Astronomy Picture</b>
+        <p className="text-gray-300 text-sm mt-1">Daily cosmic imagery</p>
+      </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-pink-500 to-purple-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+    </a>
   </div>
 </main>
 
