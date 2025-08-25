@@ -14,7 +14,10 @@ export default function SolarSystemCanvas({
   timeOffset = 0, 
   timeSpeed = 100, 
   userLocation,
-  realTimeData 
+  realTimeData,
+  spacecraftData,
+  selectedSpacecraft,
+  onSpacecraftSelect
 }) {
   // Add validation for required props
   if (typeof timeOffset !== 'number') {
@@ -108,6 +111,9 @@ export default function SolarSystemCanvas({
               timeSpeed={timeSpeed}
               userLocation={userLocation}
               realTimeData={realTimeData}
+              spacecraftData={spacecraftData}
+              selectedSpacecraft={selectedSpacecraft}
+              onSpacecraftSelect={onSpacecraftSelect}
               showLabels={true}
               showOrbits={true}
             />

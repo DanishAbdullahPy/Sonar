@@ -5,6 +5,7 @@ import Planet from './Planet';
 import OrbitPath from './OrbitPath';
 import AsteroidBelt from './AsteroidBelt';
 import Comet from './Comet';
+import SpacecraftTracker from './SpacecraftTracker';
 
 export default function SolarSystem({ 
   selectedPlanet, 
@@ -13,6 +14,9 @@ export default function SolarSystem({
   timeSpeed = 1, 
   userLocation,
   realTimeData,
+  spacecraftData,
+  selectedSpacecraft,
+  onSpacecraftSelect,
   showLabels = true,
   showOrbits = true
 }) {
@@ -85,6 +89,16 @@ export default function SolarSystem({
           />
         );
       })}
+      
+      {/* Spacecraft Tracking */}
+      {spacecraftData && (
+        <SpacecraftTracker
+          spacecraftData={spacecraftData}
+          onSpacecraftSelect={onSpacecraftSelect}
+          selectedSpacecraft={selectedSpacecraft}
+          showLabels={showLabels}
+        />
+      )}
       
       {/* Asteroid Belt (between Mars and Jupiter only) */}
       <AsteroidBelt 

@@ -6,6 +6,7 @@ import PlanetInfo from './components/PlanetInfo';
 import PlanetaryDashboard from './components/PlanetaryDashboard';
 import SkyMap from './components/SkyMap';
 import { PLANETS } from '@/lib/solarSystemData';
+import { fetchSpacecraftLocations } from '@/lib/sscApi';
 import './components/PlanetLabels.css';
 
 export default function SolarSystemPage() {
@@ -19,6 +20,8 @@ export default function SolarSystemPage() {
   const [showOrbits, setShowOrbits] = useState(true);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [locationStatus, setLocationStatus] = useState('requesting'); // 'requesting', 'granted', 'denied'
+  const [spacecraftData, setSpacecraftData] = useState(null);
+  const [selectedSpacecraft, setSelectedSpacecraft] = useState(null);
 
   // Get the selected planet object from the name
   const selectedPlanet = selectedPlanetName ? Object.values(PLANETS).find(p => p.name === selectedPlanetName) : null;
@@ -133,6 +136,28 @@ export default function SolarSystemPage() {
     return () => clearInterval(interval);
   }, [userLocation]);
 
+  // Fetch spacecraft data from NASA SSC
+  useEffect(() => {
+    const fetchSpacecraftData = async () => {
+      if (userLocation) {
+        try {
+          console.log('Fetching spacecraft data...');
+          const data = await fetchSpacecraftLocations(userLocation);
+          setSpacecraftData(data);
+          console.log('Spacecraft data loaded:', data);
+        } catch (error) {
+          console.error('Error fetching spacecraft data:', error);
+        }
+      }
+    };
+
+    fetchSpacecraftData();
+    
+    // Refresh spacecraft data every 10 minutes
+    const interval = setInterval(fetchSpacecraftData, 10 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [userLocation]);
+
   return (
     <div className="relative w-full h-screen bg-black overflow-hidden">
       {/* 3D Canvas */}
@@ -143,6 +168,9 @@ export default function SolarSystemPage() {
         timeSpeed={timeSpeed}
         realTimeData={realTimeData}
         userLocation={userLocation}
+        spacecraftData={spacecraftData}
+        selectedSpacecraft={selectedSpacecraft}
+        onSpacecraftSelect={setSelectedSpacecraft}
       />
       
       {/* UI Overlays */}

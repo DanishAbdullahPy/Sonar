@@ -113,3 +113,99 @@
     min-width: 60px;
   }
 }
+
+/* Spacecraft Labels Styling */
+.spacecraft-label {
+  pointer-events: none;
+  user-select: none;
+  text-align: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.spacecraft-name {
+  background: rgba(0, 100, 200, 0.9);
+  color: #ffffff;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(100, 200, 255, 0.3);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 3px 10px rgba(0, 100, 200, 0.4);
+  white-space: nowrap;
+  margin-bottom: 6px;
+}
+
+.spacecraft-info {
+  background: rgba(0, 50, 100, 0.95);
+  color: #e0f0ff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  line-height: 1.3;
+  border: 1px solid rgba(100, 200, 255, 0.2);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 15px rgba(0, 50, 100, 0.5);
+  min-width: 100px;
+  animation: fadeInUp 0.3s ease;
+}
+
+.spacecraft-info div {
+  margin: 1px 0;
+  color: #b0d0ff;
+}
+
+.spacecraft-label.hovered {
+  transform: scale(1.1);
+}
+
+.spacecraft-label.hovered .spacecraft-name {
+  background: rgba(0, 150, 255, 0.95);
+  border-color: rgba(0, 200, 255, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 150, 255, 0.5);
+}
+
+.spacecraft-label.selected .spacecraft-name {
+  background: rgba(0, 255, 100, 0.95);
+  border-color: rgba(0, 255, 100, 0.6);
+  box-shadow: 0 4px 15px rgba(0, 255, 100, 0.5);
+  animation: pulse 2s infinite;
+}
+
+/* Responsive spacecraft labels */
+@media (max-width: 768px) {
+  .spacecraft-label {
+    transform: scale(0.8);
+  }
+  
+  .spacecraft-name {
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+  
+  .spacecraft-info {
+    font-size: 8px;
+    padding: 4px 6px;
+    min-width: 70px;
+  }
+}
+
+@media (max-width: 480px) {
+  .spacecraft-label {
+    transform: scale(0.7);
+  }
+  
+  .spacecraft-name {
+    font-size: 9px;
+    padding: 2px 4px;
+  }
+  
+  .spacecraft-info {
+    font-size: 7px;
+    padding: 3px 4px;
+    min-width: 50px;
+  }
+}
